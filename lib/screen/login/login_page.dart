@@ -20,6 +20,7 @@ class Login_page extends StatefulWidget {
 class _Login_pageState extends State<Login_page> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  bool isloading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -135,20 +136,44 @@ class _Login_pageState extends State<Login_page> {
                           child: RaisedButton(
                             padding: EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 30),
-                            onPressed: () {
+                            onPressed: () async {
                               print("Test SingIn");
-                              AuthController.instance.Login(
+                              if (emailcontroller.text.isEmpty) {
+                              } else {
+                                AuthController.instance.Login(
                                   emailcontroller.text.trim(),
-                                  passwordcontroller.text.trim());
+                                  passwordcontroller.text.trim(),
+                                );
+                                setState(() => isloading = true);
+                                await Future.delayed(Duration(seconds: 5));
+                                setState(() => isloading = false);
+                              }
                             },
                             color: Color.fromARGB(255, 149, 243, 218),
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(30))),
-                            child: Text(
-                              "Sing In",
-                              style: TextStyle(fontSize: 17),
-                            ),
+                            child: isloading
+                                ? Row(
+                                    children: [
+                                      CircularProgressIndicator(
+                                        color: Colors.white,
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                          child: Text(
+                                        'Please Wait...',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      ))
+                                    ],
+                                  )
+                                : Text(
+                                    "Sing In",
+                                    style: TextStyle(fontSize: 17),
+                                  ),
                           ),
                         )
                       ],

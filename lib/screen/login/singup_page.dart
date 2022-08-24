@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_nop/screen/login/auth_controller.dart';
+import 'package:get/route_manager.dart';
 
 class SignUp_page extends StatefulWidget {
   const SignUp_page({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class SignUp_page extends StatefulWidget {
 class _SignUp_pageState extends State<SignUp_page> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     List images = [
@@ -145,22 +147,10 @@ class _SignUp_pageState extends State<SignUp_page> {
                               padding: EdgeInsets.symmetric(
                                   vertical: 8, horizontal: 30),
                               onPressed: () {
-                                // FirebaseAuth.instance
-                                //     .createUserWithEmailAndPassword(
-                                //         email: emailcontroller.text,
-                                //         password: passwordcontroller.text)
-                                //     .then(
-                                //   (value) {
-                                //     Navigator.push(
-                                //         context,
-                                //         MaterialPageRoute(
-                                //             builder: (context) =>
-                                //                 Welcome_Page()));
-                                //   },
-                                // );
                                 AuthController.instance.register(
-                                    emailcontroller.text.trim(),
-                                    passwordcontroller.text.trim());
+                                  emailcontroller.text.trim(),
+                                  passwordcontroller.text.trim(),
+                                );
                               },
                               color: Color.fromARGB(255, 149, 243, 218),
                               shape: RoundedRectangleBorder(
@@ -179,17 +169,57 @@ class _SignUp_pageState extends State<SignUp_page> {
                   SizedBox(
                     height: 45,
                   ),
+                  // Center(
+                  //   child: Wrap(
+                  //     children: List<Widget>.generate(3, (index) {
+                  //       return Padding(
+                  //         padding: const EdgeInsets.all(7.0),
+                  //         child: CircleAvatar(
+                  //           radius: 22,
+                  //           backgroundImage: AssetImage("img/" + images[index]),
+                  //         ),
+                  //       );
+                  //     }),
+                  //   ),
+                  // ),
                   Center(
                     child: Wrap(
-                      children: List<Widget>.generate(3, (index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(7.0),
-                          child: CircleAvatar(
-                            radius: 22,
-                            backgroundImage: AssetImage("img/" + images[index]),
+                      children: <Widget>[
+                        CircleAvatar(
+                          radius: 22,
+                          backgroundImage: AssetImage("img/g.png"),
+                          child: InkWell(
+                            onTap: () {
+                              print("Test Google");
+                            },
                           ),
-                        );
-                      }),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        CircleAvatar(
+                          radius: 22,
+                          backgroundImage: AssetImage("img/f.png"),
+                          child: InkWell(
+                            onTap: () {
+                              print("Test Facebook");
+                              AuthController.instance.signInWithFacebook();
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        CircleAvatar(
+                          radius: 22,
+                          backgroundImage: AssetImage("img/t.png"),
+                          child: InkWell(
+                            onTap: () {
+                              print("Test Twitter");
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
