@@ -3,8 +3,8 @@ import 'dart:ffi';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_nop/screen/welcome.dart';
 import 'package:flutter_nop/screen/login/login_page.dart';
-import 'package:flutter_nop/screen/test.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +26,7 @@ class AuthController extends GetxController {
       print("login page");
       Get.offAll(() => Login_page());
     } else {
-      Get.offAll(() => Welcome_Page());
+      Get.offAll(() => Home_screen(email: user.email!));
     }
   }
 

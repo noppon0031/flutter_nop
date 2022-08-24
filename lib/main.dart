@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_nop/screen/login/auth_controller.dart';
 import 'package:flutter_nop/screen/login/login_page.dart';
 import 'package:flutter_nop/screen/login/singup_page.dart';
-import 'package:flutter_nop/screen/test.dart';
 import 'package:get/get.dart';
 
 void main() async {

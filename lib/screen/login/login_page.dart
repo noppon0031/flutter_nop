@@ -25,6 +25,11 @@ class _Login_pageState extends State<Login_page> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+    List images = [
+      "g.png",
+      "t.png",
+      "f.png",
+    ];
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -162,16 +167,19 @@ class _Login_pageState extends State<Login_page> {
                           ),
                           children: [
                             TextSpan(
-                                text: " Create",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () => Get.to(() => SignUp_page())),
+                              text: " Create",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => Get.to(
+                                      () => SignUp_page(),
+                                    ),
+                            ),
                           ]),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

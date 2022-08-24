@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_nop/screen/login/auth_controller.dart';
-import 'package:flutter_nop/screen/test.dart';
 
 class SignUp_page extends StatefulWidget {
   const SignUp_page({Key? key}) : super(key: key);
@@ -13,10 +12,10 @@ class SignUp_page extends StatefulWidget {
 }
 
 class _SignUp_pageState extends State<SignUp_page> {
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var emailcontroller = TextEditingController();
-    var passwordcontroller = TextEditingController();
     List images = [
       "g.png",
       "t.png",
@@ -192,7 +191,7 @@ class _SignUp_pageState extends State<SignUp_page> {
                         );
                       }),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
