@@ -19,9 +19,7 @@ class Home_PageState extends State<Home_Page> {
   late String difference = "00:00";
   String dateFormat = 'EEEE, d MMMM';
   bool btncheckin = true;
-  Timer? timerC;
   DateTime? datenow = DateTime.now();
-  // late NewmainBloc newMainBloc;
 
   @override
   void initState() {
@@ -115,13 +113,7 @@ class Home_PageState extends State<Home_Page> {
                             MaterialStateProperty.all(Colors.transparent),
                       ),
                       onPressed: () {
-                        // btncheckin ? OnClickCheckIn() : OnClickCheckOut();
-                        // AwesomeDialogCustom(
-                        //     context: context,
-                        //     desc: "TEST",
-                        //     dialogType: DialogType_Custom.CHECKIN,
-                        //     btnOkOnPress: () => print("object"))
-                        //   ..showOk();
+                        print(datenow);
                       },
                       child: Container(
                         margin: EdgeInsets.fromLTRB(0, 14, 0, 14),
@@ -139,37 +131,5 @@ class Home_PageState extends State<Home_Page> {
         ),
       ),
     );
-  }
-
-  String daysBetween(DateTime from, String difference) {
-    DateTime to = DateTime.now();
-    from = DateTime(
-        from.year, from.month, from.day, from.hour, from.minute, from.second);
-    to = DateTime(to.year, to.month, to.day, to.hour, to.minute, to.second);
-    int h = (to.difference(from).inMinutes / 60).toInt();
-    int m = (to.difference(from).inMinutes % 60).toInt();
-
-    if (difference.isNotEmpty) {
-      TimeOfDay z = TimeOfDay(
-          hour: int.parse(difference.split(":")[0]),
-          minute: int.parse(difference.split(":")[1]));
-
-      h += z.hour;
-      m += z.minute;
-
-      if (m >= 60) {
-        int mtoh = (m / 60).toInt();
-        h += mtoh;
-        m = m % 60;
-      }
-
-      return "${h.toString().length == 1 ? "0$h" : "$h"}:${m.toString().length == 1 ? "0$m" : "$m"}";
-    }
-
-    if (h >= 24 && m > 0) {
-      timerC?.cancel();
-      return difference;
-    }
-    return "${h.toString().length == 1 ? "0$h" : "$h"}:${m.toString().length == 1 ? "0$m" : "$m"}";
   }
 }

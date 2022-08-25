@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_nop/screen/Quiz.dart';
+import 'package:flutter_nop/screen/Quiz/quiz.dart';
+import 'package:flutter_nop/screen/Quiz/quizcreate.dart';
 import 'package:flutter_nop/screen/home.dart';
 import 'package:flutter_nop/screen/login/auth_controller.dart';
 import 'package:get/get.dart';
@@ -68,6 +69,35 @@ class Home_screen extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(30))),
                             child: Text(
                               "Home Screen",
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Container(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          width: 190,
+                          height: 50,
+                          child: RaisedButton(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 30),
+                            onPressed: () {
+                              Get.to(() => Quiz_CreatePage());
+                            },
+                            color: Color.fromARGB(255, 149, 243, 218),
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30))),
+                            child: Text(
+                              "Quiz Create",
                               style: TextStyle(fontSize: 17),
                             ),
                           ),
