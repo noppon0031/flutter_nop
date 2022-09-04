@@ -37,6 +37,14 @@ class Home_PageState extends State<Home_Page> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: new AppBar(
+        title: Text(
+          "Home Screen",
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Color.fromARGB(255, 238, 139, 172),
+        // toolbarHeight: 70,
+      ),
       backgroundColor: Colors.white,
       body: Container(
         decoration: BoxDecoration(
@@ -48,16 +56,16 @@ class Home_PageState extends State<Home_Page> {
           children: <Widget>[
             new Center(
               child: new ListView(
-                padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+                padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 40, 0, 10),
-                    child: Text(
-                      "Home Screen",
-                      style:
-                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                  // Container(
+                  //   padding: EdgeInsets.fromLTRB(0, 40, 0, 10),
+                  //   child: Text(
+                  //     "Home Screen",
+                  //     style:
+                  //         TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 85,
                   ),
@@ -73,7 +81,8 @@ class Home_PageState extends State<Home_Page> {
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    progressColor: Color.fromRGBO(55, 180, 170, 1),
+                    // progressColor: Color.fromRGBO(55, 180, 170, 1),
+                    progressColor: Color.fromARGB(255, 238, 139, 172),
                   ),
                   SizedBox(
                     height: 40,
@@ -83,13 +92,19 @@ class Home_PageState extends State<Home_Page> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(DateFormat(dateFormat).format(DateTime.now())),
+                      SizedBox(
+                        height: 5,
+                      ),
                       Text(
                           "${DateFormat('H').format(datenow!)}:${DateFormat('mm').format(datenow!)}:${DateFormat('ss').format(datenow!)}"),
+                      SizedBox(
+                        height: 5,
+                      ),
                       Text("Location"),
                     ],
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(100, 0, 100, 0),
@@ -100,6 +115,8 @@ class Home_PageState extends State<Home_Page> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           btncheckin
+
+                              // ? Color.fromRGBO(30, 126, 118, 1)
                               ? Color.fromRGBO(30, 126, 118, 1)
                               : Colors.red,
                         ),

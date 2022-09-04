@@ -391,6 +391,7 @@ class Quiz_PageState extends State<Quiz_Page> {
                                 vertical: 8, horizontal: 30),
                             onPressed: () {
                               // validateAndSubmit();
+                              print('Submit');
                             },
                             color: Color.fromARGB(255, 149, 243, 218),
                             shape: RoundedRectangleBorder(
@@ -405,6 +406,186 @@ class Quiz_PageState extends State<Quiz_Page> {
                       ],
                     ),
                   ),
+                  // Container(
+                  //   margin: EdgeInsets.fromLTRB(0, 40, 0, 10),
+                  //   decoration: BoxDecoration(
+                  //       color: Colors.white,
+                  //       borderRadius: BorderRadius.circular(25),
+                  //       border: Border.all(color: Colors.grey)),
+                  //   child: Column(
+                  //     children: [
+                  //       Padding(
+                  //         padding: EdgeInsets.fromLTRB(10, 20, 0, 20),
+                  //         child: Text(
+                  //           "TestQuiz TestQuiz TestQuiz TestQuiz TestQuiz TestQuiz TestQuiz TestQuiz TestQuiz TestQuiz  _______",
+                  //           // style: Theme.of(context).textTheme.headline6,
+                  //           style: TextStyle(
+                  //               fontSize: 18, fontWeight: FontWeight.bold),
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //         margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //         decoration: BoxDecoration(
+                  //           border: Border.all(color: Colors.grey),
+                  //           borderRadius: BorderRadius.circular(15),
+                  //         ),
+                  //         child: InkWell(
+                  //           onTap: () {
+                  //             print("A");
+                  //           },
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.start,
+                  //             children: [
+                  //               Container(
+                  //                 height: 26,
+                  //                 width: 26,
+                  //                 decoration: BoxDecoration(
+                  //                     borderRadius: BorderRadius.circular(50),
+                  //                     border: Border.all(color: Colors.grey)),
+                  //                 child: Center(
+                  //                     child: Text(
+                  //                   "A",
+                  //                   style:
+                  //                       TextStyle(fontWeight: FontWeight.bold),
+                  //                 )),
+                  //               ),
+                  //               Padding(
+                  //                 padding: const EdgeInsets.all(10.0),
+                  //                 child: Text(
+                  //                   "TestData TestData",
+                  //                   style: TextStyle(
+                  //                       fontSize: 15,
+                  //                       fontWeight: FontWeight.bold),
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //         margin: EdgeInsets.fromLTRB(20, 5, 20, 10),
+                  //         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //         decoration: BoxDecoration(
+                  //           border: Border.all(color: Colors.grey),
+                  //           borderRadius: BorderRadius.circular(15),
+                  //         ),
+                  //         child: InkWell(
+                  //           onTap: () {
+                  //             print("B");
+                  //           },
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.start,
+                  //             children: [
+                  //               Container(
+                  //                 height: 26,
+                  //                 width: 26,
+                  //                 decoration: BoxDecoration(
+                  //                     borderRadius: BorderRadius.circular(50),
+                  //                     border: Border.all(color: Colors.grey)),
+                  //                 child: Center(
+                  //                     child: Text(
+                  //                   "B",
+                  //                   style:
+                  //                       TextStyle(fontWeight: FontWeight.bold),
+                  //                 )),
+                  //               ),
+                  //               Padding(
+                  //                 padding: const EdgeInsets.all(10.0),
+                  //                 child: Text(
+                  //                   "TestData TestData",
+                  //                   style: TextStyle(
+                  //                       fontSize: 15,
+                  //                       fontWeight: FontWeight.bold),
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //         margin: EdgeInsets.fromLTRB(20, 5, 20, 10),
+                  //         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //         decoration: BoxDecoration(
+                  //           border: Border.all(color: Colors.grey),
+                  //           borderRadius: BorderRadius.circular(15),
+                  //         ),
+                  //         child: InkWell(
+                  //           onTap: () {
+                  //             print("C");
+                  //           },
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.start,
+                  //             children: [
+                  //               Container(
+                  //                 height: 26,
+                  //                 width: 26,
+                  //                 decoration: BoxDecoration(
+                  //                     borderRadius: BorderRadius.circular(50),
+                  //                     border: Border.all(color: Colors.grey)),
+                  //                 child: Center(
+                  //                     child: Text(
+                  //                   "C",
+                  //                   style:
+                  //                       TextStyle(fontWeight: FontWeight.bold),
+                  //                 )),
+                  //               ),
+                  //               Padding(
+                  //                 padding: const EdgeInsets.all(10.0),
+                  //                 child: Text(
+                  //                   "TestData TestData",
+                  //                   style: TextStyle(
+                  //                       fontSize: 15,
+                  //                       fontWeight: FontWeight.bold),
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //         margin: EdgeInsets.fromLTRB(20, 5, 20, 20),
+                  //         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //         decoration: BoxDecoration(
+                  //           border: Border.all(color: Colors.grey),
+                  //           borderRadius: BorderRadius.circular(15),
+                  //         ),
+                  //         child: InkWell(
+                  //           onTap: () {
+                  //             print("D");
+                  //           },
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.start,
+                  //             children: [
+                  //               Container(
+                  //                 height: 26,
+                  //                 width: 26,
+                  //                 decoration: BoxDecoration(
+                  //                     borderRadius: BorderRadius.circular(50),
+                  //                     border: Border.all(color: Colors.grey)),
+                  //                 child: Center(
+                  //                     child: Text(
+                  //                   "D",
+                  //                   style:
+                  //                       TextStyle(fontWeight: FontWeight.bold),
+                  //                 )),
+                  //               ),
+                  //               Padding(
+                  //                 padding: const EdgeInsets.all(10.0),
+                  //                 child: Text(
+                  //                   "TestData TestData",
+                  //                   style: TextStyle(
+                  //                       fontSize: 15,
+                  //                       fontWeight: FontWeight.bold),
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 155,
                   ),

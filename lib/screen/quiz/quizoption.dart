@@ -6,15 +6,17 @@ import 'package:flutter_nop/screen/quiz/quizcreateme.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-class Quiz_CreatePage extends StatefulWidget {
-  const Quiz_CreatePage({Key? key}) : super(key: key);
+class Quiz_OptionPage extends StatefulWidget {
+  var numquiz;
+  Quiz_OptionPage(this.numquiz, {Key? key}) : super(key: key);
 
   @override
-  State<Quiz_CreatePage> createState() => Quiz_CreatePageState();
+  State<Quiz_OptionPage> createState() => Quiz_OptionPageState();
 }
 
-class Quiz_CreatePageState extends State<Quiz_CreatePage> {
+class Quiz_OptionPageState extends State<Quiz_OptionPage> {
   TextEditingController createquizcontroller = TextEditingController();
+
   var selectedRadio;
   var selectedRadio2;
   var selectedRadio3;
@@ -25,7 +27,6 @@ class Quiz_CreatePageState extends State<Quiz_CreatePage> {
     selectedRadio = 0;
     selectedRadio2 = 0;
     selectedRadio3 = 0;
-    createquizcontroller.text = "";
   }
 
   Widget build(BuildContext context) {
@@ -254,43 +255,19 @@ class Quiz_CreatePageState extends State<Quiz_CreatePage> {
     );
   }
 
-  void validateAndSubmit() async {
+  void validateAndSubmit() {
     var create = createquizcontroller.text.toString().trim();
     var numquiz = int.parse(create);
-
-    if (numquiz != 0) {
-      if (numquiz <= 10) {
-        Get.to(() => quizme_page(numquiz));
-        Get.snackbar(
-          "About Login",
-          "คุณได้สร้างคำถามจำนวน $numquiz",
-          backgroundColor: Color.fromARGB(255, 149, 243, 218),
-          snackPosition: SnackPosition.BOTTOM,
-          titleText: Text(
-            "สำเร็จ!!",
-            style: TextStyle(color: Colors.black),
-          ),
-        );
-      } else {
-        Get.snackbar(
-          "About Login",
-          "สร้างคำถามสูงสุดได้ 10 ข้อ",
-          backgroundColor: Color.fromARGB(255, 249, 75, 56),
-          snackPosition: SnackPosition.BOTTOM,
-          titleText: Text(
-            "ไม่สำเร็จ!!",
-            style: TextStyle(color: Colors.black),
-          ),
-        );
-      }
+    if (create.isNotEmpty) {
+      Get.to(() => quizme_page(numquiz));
     } else {
       Get.snackbar(
         "About Login",
-        "โปรดใส่จำนวนคำถามของคุณใหม่",
-        backgroundColor: Color.fromARGB(255, 249, 75, 56),
+        "false Create",
+        backgroundColor: Color.fromARGB(255, 149, 243, 218),
         snackPosition: SnackPosition.BOTTOM,
         titleText: Text(
-          "ไม่สำเร็จ!!",
+          "โปรดระบุจำนวนคำถามของคุณ",
           style: TextStyle(color: Colors.black),
         ),
       );

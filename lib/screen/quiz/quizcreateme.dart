@@ -142,6 +142,34 @@ class quizme_page extends StatelessWidget {
               );
             },
           ),
+          // Padding(
+          //   padding: EdgeInsets.fromLTRB(0, 700, 0, 0),
+          //   child: Container(
+          //     child: Column(
+          //       mainAxisSize: MainAxisSize.min,
+          //       children: [
+          //         SizedBox(
+          //           width: 120,
+          //           height: 50,
+          //           child: RaisedButton(
+          //             padding:
+          //                 EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+          //             onPressed: () {
+          //               // validateAndSubmit();
+          //             },
+          //             color: Color.fromARGB(255, 149, 243, 218),
+          //             shape: RoundedRectangleBorder(
+          //                 borderRadius: BorderRadius.all(Radius.circular(30))),
+          //             child: Text(
+          //               "Submit",
+          //               style: TextStyle(fontSize: 17),
+          //             ),
+          //           ),
+          //         )
+          //       ],
+          //     ),
+          //   ),
+          // ),
         ]),
       ),
     );
