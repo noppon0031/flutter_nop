@@ -15,25 +15,20 @@ class Home_Page extends StatefulWidget {
 }
 
 class Home_PageState extends State<Home_Page> {
-  var selectedRadio;
+  var datenow;
   late String difference = "00:00";
   String dateFormat = 'EEEE, d MMMM';
   bool btncheckin = true;
-  DateTime? datenow = DateTime.now();
 
   @override
   void initState() {
     super.initState();
-    selectedRadio = 0;
+    datenow = DateTime.now();
+    const oneSecond = const Duration(seconds: 1);
+    new Timer.periodic(oneSecond, (Timer t) => setState(() {}));
   }
 
   Widget build(BuildContext context) {
-    setSelectedRadio(var val) {
-      setState(() {
-        selectedRadio = val;
-      });
-    }
-
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -71,7 +66,7 @@ class Home_PageState extends State<Home_Page> {
                   ),
                   CircularPercentIndicator(
                     radius: 120.0,
-                    lineWidth: 20.0,
+                    lineWidth: 23.0,
                     percent: 1.0,
                     center: Container(
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -96,7 +91,7 @@ class Home_PageState extends State<Home_Page> {
                         height: 5,
                       ),
                       Text(
-                          "${DateFormat('H').format(datenow!)}:${DateFormat('mm').format(datenow!)}:${DateFormat('ss').format(datenow!)}"),
+                          "${DateFormat('H').format(DateTime.now())}:${DateFormat('mm').format(DateTime.now())}:${DateFormat('ss').format(DateTime.now())}"),
                       SizedBox(
                         height: 5,
                       ),
@@ -115,9 +110,8 @@ class Home_PageState extends State<Home_Page> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           btncheckin
-
                               // ? Color.fromRGBO(30, 126, 118, 1)
-                              ? Color.fromRGBO(30, 126, 118, 1)
+                              ? Color.fromARGB(255, 246, 137, 195)
                               : Colors.red,
                         ),
                         shape:
@@ -130,6 +124,7 @@ class Home_PageState extends State<Home_Page> {
                             MaterialStateProperty.all(Colors.transparent),
                       ),
                       onPressed: () {
+                        DateTime? datenow = DateTime.now();
                         print(datenow);
                       },
                       child: Container(
